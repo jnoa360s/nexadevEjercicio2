@@ -1,0 +1,4 @@
+administer omdbsearch:
+  title: 'Administer OMDB Settings'
+  description: 'Access the OMDB administrative settings page.'
+  restrict access: true

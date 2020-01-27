@@ -69,10 +69,14 @@ class DeleteMovieForm extends ConfirmFormBase
   public function buildForm(array $form, FormStateInterface $form_state, $imdbId = NULL)
   {
 
-    $client = new GuzzleClient();
-    $request = new GuzzleRequest("GET", "http://www.omdbapi.com/?apikey=d1d8751d&i={$imdbId}");
-    $response = $client->send($request, ['timeout' => 30]);
-    $searchResult = json_decode($response->getBody(), true);
+//    $client = new GuzzleClient();
+//    $request = new GuzzleRequest("GET", "http://www.omdbapi.com/?apikey=d1d8751d&i={$imdbId}");
+//    $response = $client->send($request, ['timeout' => 30]);
+//    $searchResult = json_decode($response->getBody(), true);
+
+    /** @var \Drupal\omdbsearch\OMDBAPIService $searchResult */
+    $omdbSearchAPI = \Drupal::service('omdbsearch.moviesearch');
+    $searchResult = $omdbSearchAPI->queryEndpoint(['i' => $imdbId]);
 
     $this->imdbId = $imdbId;
     $this->moviePoster = $searchResult['Poster'];

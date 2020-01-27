@@ -10,3 +10,9 @@ omdbsearch.report:
   route_name: omdbsearch.report
   weight: 11
   menu_name: main
+omdbsearch.admin_settings:
+  title: 'OMDB API Settings'
+  description: 'Config OMDB API settings'
+  route_name: omdbsearch.admin_settings
+  parent: system.admin_config_content
+  weight: 10

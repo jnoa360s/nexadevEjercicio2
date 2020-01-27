@@ -33,3 +33,10 @@ omdbsearch.report:
   requirements:
     _permission: 'access content+access user profiles'
     _user_is_logged_in: 'true'
+omdbsearch.admin_settings:
+  path: '/admin/config/content/omdb-search'
+  defaults:
+    _form: '\Drupal\omdbsearch\Form\OMDBSettingsForm'
+    _title: 'OMDB API Key Settings'
+  requirements:
+    _permission: 'administer omdbsearch'

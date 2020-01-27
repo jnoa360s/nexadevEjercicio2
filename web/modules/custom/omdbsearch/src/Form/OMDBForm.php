@@ -62,10 +62,14 @@ class OMDBForm extends FormBase
     $movie_title = \Drupal::request()->query->get('movie_title');
     if ($movie_title)
       try {
-        $client = new GuzzleClient();
-        $request = new GuzzleRequest("GET", "http://www.omdbapi.com/?apikey=d1d8751d&s={$movie_title}");
-        $response = $client->send($request, ['timeout' => 30]);
-        $searchResult = json_decode($response->getBody(), true);
+//        $client = new GuzzleClient();
+//        $request = new GuzzleRequest("GET", "http://www.omdbapi.com/?apikey=d1d8751d&s={$movie_title}");
+//        $response = $client->send($request, ['timeout' => 30]);
+//        $searchResult = json_decode($response->getBody(), true);
+
+        /** @var \Drupal\omdbsearch\OMDBAPIService $searchResult */
+        $omdbSearchAPI = \Drupal::service('omdbsearch.moviesearch');
+        $searchResult = $omdbSearchAPI->queryEndpoint(['s' => $movie_title]);
 
         if (!empty($searchResult['Search']) && count($searchResult['Search']) > 0) {
 
