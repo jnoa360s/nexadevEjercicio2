@@ -1,0 +1,76 @@
+<?php
+/**
+ * Implements hook_schema().
+ *
+ */
+function omdbsearch_schema()
+{
+
+  $schema['omdbsearch'] = array(
+    'description' => 'data from omdb api',
+    'fields' => array(
+      'id' => array(
+        'description' => 'The primary identifier for the record.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'The {users}.uid that added this rsvp.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'nid' => array(
+        'description' => 'The {node} .nid for this rsvp.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'default' => 0,
+      ),
+      'movie_image_url' => array(
+        'type' => 'varchar',
+        'length' => 150,
+        'not null' => FALSE,
+        'default' => '',
+      ),
+      'movie_title' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+        'default' => '',
+      ),
+      'movie_year' => array(
+        'type' => 'varchar',
+        'length' => 25,
+        'not null' => FALSE,
+        'default' => '',
+      ),
+      'movie_rating' => array(
+        'type' => 'varchar',
+        'length' => 25,
+        'not null' => FALSE,
+        'default' => '',
+      ),
+      'movie_imdbid' => array(
+        'type' => 'varchar',
+        'length' => 25,
+        'not null' => FALSE,
+        'default' => '',
+      ),
+      'created' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp for when the row was created.',
+      ),
+    ),
+    'primary key' => array('id'),
+    'indexes' => array(
+      'node' => array('nid'),
+      'node_user' => array('nid', 'uid'),
+    ),
+  );
+
+  return $schema;
+}

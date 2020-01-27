@@ -1,0 +1,35 @@
+omdbsearch.omdb_search:
+  path: 'omdb-search'
+  defaults:
+    _form: '\Drupal\omdbsearch\Form\OMDBForm'
+    _title: 'OMDB search movies form'
+  requirements:
+    _permission: 'access content+access user profiles'
+    _user_is_logged_in: 'true'
+
+omdbsearch.add_movie_form:
+  path: '/omdb-search/add/{imdbId}'
+  defaults:
+    _form: '\Drupal\omdbsearch\Form\AddMovieForm'
+    _title: 'AddMovieForm'
+  requirements:
+    _permission: 'access content+access user profiles'
+    _user_is_logged_in: 'true'
+
+omdbsearch.delete_movie_form:
+  path: '/omdb-search/delete/{imdbId}'
+  defaults:
+    _form: '\Drupal\omdbsearch\Form\DeleteMovieForm'
+    _title: 'DeleteMovieForm'
+  requirements:
+    _permission: 'access content+access user profiles'
+    _user_is_logged_in: 'true'
+
+omdbsearch.report:
+  path: '/omdb-search/reports/favorites'
+  defaults:
+    _controller: '\Drupal\omdbsearch\Controller\ReportController::report'
+    _title: 'List of favorite user movies'
+  requirements:
+    _permission: 'access content+access user profiles'
+    _user_is_logged_in: 'true'

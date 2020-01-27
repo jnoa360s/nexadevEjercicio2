@@ -1,0 +1,4 @@
+name: omdb search
+description: omdb movies search Form
+type: module
+core: 8.x

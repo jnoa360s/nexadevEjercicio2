@@ -14,7 +14,7 @@ $port = 3306;
 // so use the host-side bind port on docker IP
 if (empty(getenv('DDEV_PHP_VERSION'))) {
   $host = "127.0.0.1";
-  $port = 32768;
+  $port = 32772;
 } 
 
 $databases['default']['default'] = array(
@@ -32,7 +32,7 @@ ini_set('session.gc_divisor', 100);
 ini_set('session.gc_maxlifetime', 200000);
 ini_set('session.cookie_lifetime', 2000000);
 
-$settings['hash_salt'] = 'sNXtngPhZDVeCFGoGdtSEpMdsHWYanJBRrmtTUjEgUQoHCTzfNgupmOfketDKPsl';
+$settings['hash_salt'] = 'SSfslclOYIkyXffrWFCSJjQmxTheFbDhiykdaOKNaSlCCsdruiOqZMUwQuiexEvh';
 
 $settings['file_scan_ignore_directories'] = [
   'node_modules',

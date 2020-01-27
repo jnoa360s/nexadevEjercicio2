@@ -1,0 +1,4 @@
+services:
+  omdbsearch.moviesearch:
+    class: Drupal\omdbsearch\OMDBAPIService
+    arguments: []
